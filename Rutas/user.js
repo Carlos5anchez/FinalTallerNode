@@ -3,6 +3,8 @@ const jwt = require('jsonwebtoken');
 const user = express.Router();
 const db = require('../config/database');
 
+
+//REGISTRO
 user.post("/signin",async(req,res,next) =>{
     const {userName, userLastName, userPhone,userEmail,userAddress} = req.body;
     
@@ -21,6 +23,26 @@ user.post("/signin",async(req,res,next) =>{
     return res.status(500).json({code:500, message:"Campos incompletos"});
 });
 
+//BORRAR USUARIO
+user.delete("/userDelete",async(req,res,next) =>{
+    const {userEmail} = req.body;
+        let query ="DELETE FROM users";
+        query += ` WHERE userEmail = '${userEmail}' `;
+
+        const rows = await db.query(query);
+
+        if(rows.affectedRows==1){
+            return res.status(201).json({code:201,message:"Usuario Borrado correctamente"});
+
+        }
+        return res.status(500).json({code: 500, message:"Ocurrio un error al borrar"});
+  
+  
+});
+
+
+
+//ADMINISTRADOR LOGIN
 user.post("/login",async(req,res,next)=>{
     const {adminEmail,adminPassword}=req.body;
     const query=`SELECT * FROM administradores WHERE adminEmail='${adminEmail}' AND adminPassword = '${adminPassword}'`;
@@ -41,6 +63,8 @@ user.post("/login",async(req,res,next)=>{
     return res.status(500).json({code: 500,message:"Campos incompletos"});
 
 });
+
+//TODOS LOS USUARIOS
 user.get("/",async(req,res,next)=>{
     const query="SELECT * FROM users";
     const rows = await db.query(query);
