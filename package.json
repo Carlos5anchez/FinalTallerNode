@@ -1,0 +1,19 @@
+{
+  "name": "finaltallernode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Carlos5anchez/FinalTallerNode.git"
+  },
+  "author": "Axel and Carlos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Carlos5anchez/FinalTallerNode/issues"
+  },
+  "homepage": "https://github.com/Carlos5anchez/FinalTallerNode#readme"
+}
