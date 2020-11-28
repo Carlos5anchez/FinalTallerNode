@@ -39,7 +39,22 @@ user.delete("/userDelete",async(req,res,next) =>{
   
   
 });
+//CAMBIOS USUARIOS
+user.put("/userUpdate", async(req,res,next)=>{
+    const{userName,userLastName,userPhone,userEmail,userAddress} = req.body;
+    if(userName && userLastName && userPhone && userEmail && userAddress){
+        let query=`UPDATE users SET userName='${userName}', userLastName='${userLastName}', userPhone='${userPhone}'`;
+        query += `, userEmail = '${userEmail}', userAddress='${userAddress}' WHERE userName='${userName}';`;
+        const rows = await db.query(query);
+        if(rows.affectedRows==1){
+            return res.status(201).json({code:201,message:"Usuario Actualizado correctamente"});
 
+        }
+        return res.status(500).json({code: 500, message:"Ocurrio un error"});
+    }
+    return res.status(500).json({code:500, message:"Campos incompletos"});
+    
+});
 
 
 //ADMINISTRADOR LOGIN
