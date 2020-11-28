@@ -53,6 +53,33 @@
            5.2 margin
            5.3 padding
 */
+#addRow{
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-right:3px ;
+}
+#addRow:hover{
+  background-color: #d8d8d8;
+}
+#addRow>img{
+  width: 25px;
+  height: 25px;
+}
+#options{
+  width: 80%;
+  height: 6%;
+ 
+  display: flex;
+  justify-content: flex-end;
+}
+#example_filter>label>input{
+  border: 1px solid #60ba07 !important;
+}
 div#tabla-container{
     display: flex;
     justify-content: center;

@@ -11,7 +11,7 @@
     <meta name="author" content="Nghia Minh Luong">
     <meta name="keywords" content="Default Description">
     <meta name="description" content="Default keyword">
-    <title>Gestor de Trabajadores</title>
+    <title>Papelerias Pepe</title>
     <!-- Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow:300,400,700%7CMontserrat:300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
@@ -42,7 +42,7 @@
       <nav class="navigation">
         <div class="container-fluid">
           <div class="navigation__column left">
-            <div class="header__logo" ><a class="ps-logo" href="index.html" ><img src="images/nodejs.png" alt="" "></a>
+            <div class="header__logo" ><a class="ps-logo" href="index.html" ><img src="images/logo.png" alt="" "></a>
       
             </div>
           </div>
@@ -51,12 +51,15 @@
               <li class="menu-item menu-item-has-children ">
                 <a href="#">Clientes</a>
               </li>
-   
+              <li class="menu-item menu-item-has-children has-mega-menu"><a href="CRM-Productos.html">Productos</a>
+               
+              </li>
              
-                
+              <li class="menu-item menu-item-has-children "><a href="CRM-Pedidos.html">Pedidos</a></li>
               
+                   
+              </li>
             </ul>
-            
           </div>
          
         </div>
@@ -64,164 +67,99 @@
     </header>
     
     <!-- HEADER -->
-    <div id="options">
-      <div id="addRow" title="Añadir Usuario" data-toggle="modal" data-target="#form">
-        <img src="./images/134224-128.png" alt="" title="Añadir Usuario">
-      </div>
-      <div id="addRow" title="Eliminar Usuario" data-toggle="modal" data-target="#form1">
-        <img src="./images/4115236-128.png" alt="" title="Eliminar Usuario" style="height: 40px  !important;  width: 30px  !important;">
-      </div>
-      <div id="addRow" title="Editar Usuario" data-toggle="modal" data-target="#form2">
-        <img src="./images/sync-circle-blue-512.png" alt="" title="Editar Usuario">
-      </div>
-      
-    </div>
-
-
-    <!-- MODAL Registro -->
-
-    <div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header border-bottom-0">
-            <h5 class="modal-title" id="exampleModalLabel">Añadir Usuario</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <form>
-            <div class="modal-body">
-              <div class="form-group">
-                <label for="nombre">Nombre</label>
-                <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp" placeholder="Escriba el Nombre" >
-               
-              </div>
-              <div class="form-group">
-                <label for="apellidos">Apellidos</label>
-                <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" >
-              </div>
-              <div class="form-group">
-                <label for="telefono">Telefono</label>
-                <input type="text" class="form-control" id="telefono" placeholder="Telefono" >
-              </div>
-              <div class="form-group">
-                <label for="correo">Correo Electronico</label>
-                <input type="email" class="form-control" id="correo" placeholder="Correo Electronico" >
-              </div>
-              <div class="form-group">
-                <label for="direccion">Direccion</label>
-                <input type="text" class="form-control" id="direccion" placeholder="Direccion" >
-              </div>
-            </div>
-            <div class="modal-footer border-top-0 d-flex justify-content-center">
-              <button type="submit" class="btn btn-success" id="registroButton">Registrar</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
-  <!-- MODAL Baja -->
-
-  <div class="modal fade" id="form1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header border-bottom-0">
-          <h5 class="modal-title" id="exampleModalLabel">Borrar Usuario</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <form>
-          <div class="modal-body">
-            
-            <div class="form-group">
-              <label for="correo">Correo Electronico</label>
-              <input type="email" class="form-control" id="bajaCorreo" placeholder="Correo Electronico" >
-            </div>
-           
-          </div>
-          <div class="modal-footer border-top-0 d-flex justify-content-center">
-            <button type="submit" class="btn btn-success" id="bajaoButton">Registrar</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-    <!-- MODAL Cambio -->
-
-    <div class="modal fade" id="form2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header border-bottom-0">
-            <h5 class="modal-title" id="exampleModalLabel">Modificar Usuario</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <form>
-            <div class="modal-body">
-              <div class="form-group">
-                <label for="nombre">Nombre</label>
-                <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp" placeholder="Escriba el Nombre" >
-               
-              </div>
-              <div class="form-group">
-                <label for="apellidos">Apellidos</label>
-                <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" >
-              </div>
-              <div class="form-group">
-                <label for="telefono">Telefono</label>
-                <input type="text" class="form-control" id="telefono" placeholder="Telefono" >
-              </div>
-              <div class="form-group">
-                <label for="correo">Correo Electronico</label>
-                <input type="email" class="form-control" id="correo" placeholder="Correo Electronico" >
-              </div>
-              <div class="form-group">
-                <label for="direccion">Direccion</label>
-                <input type="text" class="form-control" id="direccion" placeholder="Direccion" >
-              </div>
-            </div>
-            <div class="modal-footer border-top-0 d-flex justify-content-center">
-              <button type="submit" class="btn btn-success" id="registroButton">Registrar</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
+    
     <div id="tabla-container">
       <table id="example" class="display" style="width:70%" >
         <thead>
             <tr>
                 <th>Nombre(s)</th>
                 <th>Apellido(s)</th>
-                <th>Teléfono</th>
                 <th>Correo</th>
-                <th>Dirección</th>
+                <th>Telefono</th>
             </tr>
         </thead>
         <tbody id="tbody">
             <tr>
                 <td>Alejandro</td>
                 <td>Diaz Chavez</td>
-                <td>4426359874</td>
                 <td>alex01@gmail.com</td>
-                <td>Detzani</td>
+                <td>4426359874</td>
             </tr>
-           
+            <tr>
+                <td>Roberto</td>
+                <td>Lopez Martinez</td>
+                <td>betolo@gmail.com</td>
+                <td>7536524163</td>
+            </tr>
+            <tr>
+                <td>Ulises</td>
+                <td>Cortes Cortes</td>
+                <td>uliyomba@gmail.com</td>
+                <td>7531267895</td>
+            </tr>
+            <tr>
+                <td>Ricardo Mariano</td>
+                <td>Gomez Ramirez</td>
+                <td>ricardo@hotmail.com</td>
+                <td>4456693992</td>
+            </tr>
+            <tr>
+                <td>Aixa</td>
+                <td>Perez Lievana</td>
+                <td>aixita93@gmail.com</td>
+                <td>4426549731</td>
+            </tr>
+            <tr>
+                <td>Daniel</td>
+                <td>Piero Alencaster</td>
+                <td>pieroA@hotmail.com</td>
+                <td>3366772452</td>
+            </tr>
+            <tr>
+                <td>Mitchell</td>
+                <td>Soza Mercado</td>
+                <td>mtchsoza@gmail.com</td>
+                <td>7531264978</td>
+            </tr>
+            <tr>
+                <td>Alfredo</td>
+                <td>Nava Pineda</td>
+                <td>Fellogel@gmail.com</td>
+                <td>4426974132</td>
+            </tr>
+            <tr>
+                <td>Samuel Fabian</td>
+                <td>Ramirez Hernandez</td>
+                <td>smuelr24@gmail.com</td>
+                <td>4466236211</td>
+            </tr>
+            <tr>
+                <td>Michelle</td>
+                <td>Zamacona</td>
+                <td>zamaco92@gmail.com</td>
+                <td>7531269484</td>
+            </tr>
+            <tr>
+                <td>Jena Gaines</td>
+                <td>Gudiño Barcenas</td>
+                <td>diñobar25@hotmail.com</td>
+                <td>3046712928</td>
+            </tr>
+            <tr>
+                <td>Carlos</td>
+                <td>Sanchez Martinez</td>
+                <td>cmsmcmsm230598@gmail.com</td>
+                <td>4422031546</td>
+            </tr>
             
             
         </tbody>
         <tfoot>
             <tr>
-              <th>Nombre(s)</th>
-              <th>Apellido(s)</th>
-              <th>Teléfono</th>
-              <th>Correo</th>
-              <th>Dirección</th>
+                <th>Nombre(s)</th>
+                <th>Apellido(s)</th>
+                <th>Correo</th>
+                <th>Telefono</th>
             </tr>
         </tfoot>
     </table>

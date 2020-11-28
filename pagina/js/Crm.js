@@ -1,21 +1,33 @@
-$(document).ready(function() {
-  var t = $('#example').DataTable();
-  var counter = 1;
-  $('#addRow').on( 'click', function () {
-      t.row.add( [
-          counter +'.1',
-          counter +'.2',
-          counter +'.3',
-          counter +'.4',
-          counter +'.5'
-      ] ).draw( false );
+var t = $('#example').DataTable();
 
-      counter++;
-  } );
+$(document).ready(function() {
+  document.getElementById("registroButton").addEventListener("click",registro);
+
 
   // Automatically add a first row of data
-  $('#addRow').click();
+  // $('#addRow').click();
 
 } );
 
- 
+
+
+function registro(){
+
+
+
+  var nombre= document.getElementById("nombre").value
+  var apellidos=document.getElementById("apellidos").value
+  var telefono=document.getElementById("telefono").value
+  var email=document.getElementById("correo").value
+  var direccion=document.getElementById("direccion").value
+  
+
+  t.row.add( [
+   nombre,
+   apellidos,
+   telefono,
+   email,
+   direccion
+] ).draw( false );
+}
+
