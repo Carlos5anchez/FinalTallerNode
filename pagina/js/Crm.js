@@ -1,13 +1,56 @@
 var t = $('#example').DataTable();
+var headers={};
+var url="http://127.0.0.1:3000"
 
 $(document).ready(function() {
-  document.getElementById("registroButton").addEventListener("click",registro);
+  
+  if(localStorage.getItem("token"))
+  {
+      headers= {
+          headers:{
+              'Authorization':"bearer"+localStorage.getItem("token")
+          }
+      }
+      loadUsers(); 
+  }
+  else{
+      window,lotion.href="login.html"
+  }
 
-
-  // Automatically add a first row of data
-  // $('#addRow').click();
 
 } );
+
+
+function loadUsers(){
+  axios.get(url + "/user/",headers)
+  .then(function(res){
+      console.log(res)
+      imprimirUsers(res.data.mesagge)
+
+  }).catch(function(err){
+      console.log(err)
+  })
+
+}
+
+
+function imprimirUsers(usuarios){
+
+  for (let i = 0; i < pokemon.length; i++) {
+    t.row.add( [
+      usuarios[i].userName,
+      usuarios[i].userLastName,
+      usuarios[i].userPhone,
+      usuarios[i].userEmail,
+      usuarios[i].userAddress
+   ] ).draw( false );
+    
+}
+
+
+  
+}
+
 
 
 
@@ -29,5 +72,15 @@ function registro(){
    email,
    direccion
 ] ).draw( false );
+
+// axios.get(url + "/pokemon",headers)
+// .then(function(res){
+//     console.log(res)
+//     displayPokemon(res.data.mesagge)
+
+// }).catch(function(err){
+//     console.log(err)
+// })
+
 }
 

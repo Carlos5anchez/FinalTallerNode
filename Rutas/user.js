@@ -65,9 +65,10 @@ user.post("/login",async(req,res,next)=>{
     if(adminEmail && adminPassword){
         if(rows.length == 1){
             const token = jwt.sign({
-                idAdmin: rows[0].idAdmin,
-                adminEmail: rows[0].adminEmail
+                adminEmail: rows[0].adminEmail,
+                adminPassword: rows[0].adminPassword
             }, "debugkey");
+            console.log(token)
             return res.status(200).json({code: 200, message: token});
         }
         else{
