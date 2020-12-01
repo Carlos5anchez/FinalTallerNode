@@ -54,7 +54,7 @@
            5.3 padding
 */
 
-#addRow{
+.iconOptions{
   width: 35px;
   height: 35px;
   cursor: pointer;
@@ -64,10 +64,10 @@ justify-content: center;
 align-items: center;
 margin-right:3px ;
 }
-#addRow:hover{
+.iconOptions:hover{
   background-color: #d8d8d8;
 }
-#addRow>img{
+.iconOptions>img{
   width: 25px;
   height: 25px;
 }

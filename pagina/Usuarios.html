@@ -68,13 +68,13 @@
     
     <!-- HEADER -->
     <div id="options">
-      <div id="addRow" title="Añadir Usuario" data-toggle="modal" data-target="#form">
+      <div id="addRow" class="iconOptions" title="Añadir Usuario" data-toggle="modal" data-target="#form">
         <img src="./images/134224-128.png" alt="" title="Añadir Usuario">
       </div>
-      <div id="addRow" title="Eliminar Usuario" data-toggle="modal" data-target="#form1">
+      <div id="deleteRow" class="iconOptions" title="Eliminar Usuario" data-toggle="modal" data-target="#form1">
         <img src="./images/4115236-128.png" alt="" title="Eliminar Usuario" style="height: 40px  !important;  width: 30px  !important;">
       </div>
-      <div id="addRow" title="Editar Usuario" data-toggle="modal" data-target="#form2">
+      <div id="editRow" class="iconOptions" title="Editar Usuario" data-toggle="modal" data-target="#form2">
         <img src="./images/sync-circle-blue-512.png" alt="" title="Editar Usuario">
       </div>
       
@@ -89,11 +89,11 @@
         <div class="modal-content">
           <div class="modal-header border-bottom-0">
             <h5 class="modal-title" id="exampleModalLabel">Añadir Usuario</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeModal">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <form>
+         
             <div class="modal-body">
               <div class="form-group">
                 <label for="nombre">Nombre</label>
@@ -120,7 +120,7 @@
             <div class="modal-footer border-top-0 d-flex justify-content-center">
               <button type="submit" class="btn btn-success" id="registroButton">Registrar</button>
             </div>
-          </form>
+         
         </div>
       </div>
     </div>
@@ -132,7 +132,7 @@
       <div class="modal-content">
         <div class="modal-header border-bottom-0">
           <h5 class="modal-title" id="exampleModalLabel">Borrar Usuario</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeModal1">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -160,7 +160,7 @@
         <div class="modal-content">
           <div class="modal-header border-bottom-0">
             <h5 class="modal-title" id="exampleModalLabel">Modificar Usuario</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeModal2">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -168,28 +168,28 @@
             <div class="modal-body">
               <div class="form-group">
                 <label for="nombre">Nombre</label>
-                <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp" placeholder="Escriba el Nombre" >
+                <input type="text" class="form-control" id="nombreUpdate" aria-describedby="emailHelp" placeholder="Escriba el Nombre" >
                
               </div>
               <div class="form-group">
                 <label for="apellidos">Apellidos</label>
-                <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" >
+                <input type="text" class="form-control" id="apellidosUpdate" placeholder="Apellidos" >
               </div>
               <div class="form-group">
                 <label for="telefono">Telefono</label>
-                <input type="text" class="form-control" id="telefono" placeholder="Telefono" >
+                <input type="text" class="form-control" id="telefonoUpdate" placeholder="Telefono" >
               </div>
               <div class="form-group">
                 <label for="correo">Correo Electronico</label>
-                <input type="email" class="form-control" id="correo" placeholder="Correo Electronico" >
+                <input type="email" class="form-control" id="correoUpdate" placeholder="Correo Electronico" >
               </div>
               <div class="form-group">
                 <label for="direccion">Direccion</label>
-                <input type="text" class="form-control" id="direccion" placeholder="Direccion" >
+                <input type="text" class="form-control" id="direccionUpdate" placeholder="Direccion" >
               </div>
             </div>
             <div class="modal-footer border-top-0 d-flex justify-content-center">
-              <button type="submit" class="btn btn-primary" id="registroButton">Modificar</button>
+              <button type="submit" class="btn btn-primary" id="updateButton">Modificar</button>
             </div>
           </form>
         </div>

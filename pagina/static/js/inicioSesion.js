@@ -24,7 +24,7 @@ function init(){
         }
        
     }).then(function(res){
-        console.log(res.data)
+       
         if(res.data.code === 200){
             localStorage.setItem("token",res.data.message)
              window.location.hraf="Usuarios.html"

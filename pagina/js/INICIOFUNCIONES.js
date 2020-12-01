@@ -3,6 +3,9 @@ var headers={};
 var url="http://127.0.0.1:3000"
 
 $(document).ready(function() {
+  document.getElementById("registroButton").addEventListener("click",registroNuevoUsuario)
+  document.getElementById("bajaoButton").addEventListener("click",eliminarUsuario)
+  document.getElementById("updateButton").addEventListener("click",UPDATEUsuario)
   
   if(localStorage.getItem("token"))
   {
@@ -52,8 +55,7 @@ function imprimirUsers(usuarios){
 
 
 
-function registro(){
-
+function registroNuevoUsuario(){
 
 
   var nombre= document.getElementById("nombre").value
@@ -63,15 +65,102 @@ function registro(){
   var direccion=document.getElementById("direccion").value
   
 
-  t.row.add( [
-   nombre,
-   apellidos,
-   telefono,
-   email,
-   direccion
-] ).draw( false );
+ 
 
-
+axios({
+  method:"post",
+  url:"http://127.0.0.1:3000/user/signin",
+  data:{
+    userName:nombre,
+    userLastName: apellidos,
+    userPhone:telefono,
+    userEmail:email,
+    userAddress:direccion
+     
+  }
+ 
+}).then(function(res){
+  console.log(res.data)
+  if(res.data.code === 201){
+    document.getElementById("closeModal").click();
+    t.row.add( [
+      nombre,
+      apellidos,
+      telefono,
+      email,
+      direccion
+   ] ).draw( false );
+     
+  }
+  else{
+      alert("Hubo un problema al registrar")
+  }
+}).catch(function(err){
+console.log(err)
+})
 
 }
 
+
+function eliminarUsuario(){
+
+  var email=document.getElementById("bajaCorreo").value
+
+axios({
+  method:"delete",
+  url:"http://127.0.0.1:3000/user/userDelete",
+  data:{
+    userEmail:email
+
+  }
+ 
+}).then(function(res){
+  console.log(res.data)
+  if(res.data.code === 201){
+    document.getElementById("closeModal1").click();
+  
+  }
+  else{
+      alert("Hubo un problema al Borrar")
+  }
+}).catch(function(err){
+console.log(err)
+})
+
+}
+
+
+function UPDATEUsuario(){
+
+
+  var nombre= document.getElementById("nombreUpdate").value
+  var apellidos=document.getElementById("apellidosUpdate").value
+  var telefono=document.getElementById("telefonoUpdate").value
+  var email=document.getElementById("correoUpdate").value
+  var direccion=document.getElementById("direccionUpdate").value
+
+axios({
+  method:"put",
+  url:"http://127.0.0.1:3000/user/userUpdate",
+  data:{
+    userName:nombre,
+    userLastName: apellidos,
+    userPhone:telefono,
+    userEmail:email,
+    userAddress:direccion
+     
+  }
+ 
+}).then(function(res){
+  console.log(res.data)
+  if(res.data.code === 201){
+    document.getElementById("closeModal2").click();
+  }
+  else{
+      alert("Hubo un problema al actualizar")
+  }
+}).catch(function(err){
+console.log(err)
+})
+
+}
