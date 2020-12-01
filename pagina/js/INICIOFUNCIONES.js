@@ -1,11 +1,13 @@
 var t = $('#example').DataTable();
 var headers={};
 var url="http://127.0.0.1:3000"
+var correoBuscado;
 
 $(document).ready(function() {
   document.getElementById("registroButton").addEventListener("click",registroNuevoUsuario)
   document.getElementById("bajaoButton").addEventListener("click",eliminarUsuario)
   document.getElementById("updateButton").addEventListener("click",UPDATEUsuario)
+  document.getElementById("buscarButton").addEventListener("click",buscarUsuario)
   
   if(localStorage.getItem("token"))
   {
@@ -132,11 +134,10 @@ console.log(err)
 
 function UPDATEUsuario(){
 
-
+ 
   var nombre= document.getElementById("nombreUpdate").value
   var apellidos=document.getElementById("apellidosUpdate").value
   var telefono=document.getElementById("telefonoUpdate").value
-  var email=document.getElementById("correoUpdate").value
   var direccion=document.getElementById("direccionUpdate").value
 
 axios({
@@ -146,7 +147,7 @@ axios({
     userName:nombre,
     userLastName: apellidos,
     userPhone:telefono,
-    userEmail:email,
+    userEmail:correoBuscado,
     userAddress:direccion
      
   }
@@ -154,6 +155,7 @@ axios({
 }).then(function(res){
   console.log(res.data)
   if(res.data.code === 201){
+    alert(correoBuscado)
     document.getElementById("closeModal2").click();
   }
   else{
@@ -164,3 +166,47 @@ console.log(err)
 })
 
 }
+
+function buscarUsuario(){
+
+  var email=document.getElementById("correoBuscar").value
+ 
+
+  
+axios({
+  method:"post",
+  url:"http://127.0.0.1:3000/user/buscarUsuario",
+  data:{
+    userEmail:email
+
+  }
+ 
+}).then(function(res){
+  console.log(res.data)
+  correoBuscado= email
+  
+  if(res.data.code === 201){
+    document.getElementById("closeModal21").setAttribute("data-toggle","modal")
+    document.getElementById("closeModal21").setAttribute("data-target","#form2")
+    document.getElementById("closeModal21").click();
+
+  }
+  else{
+      alert("Hubo un problema al buscar")
+  }
+}).catch(function(err){
+console.log(err)
+
+})
+
+
+
+    
+
+  
+  
+
+//   buscarButton data-toggle="modal" data-target="#form2"
+// }
+}
+

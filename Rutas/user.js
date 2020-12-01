@@ -44,7 +44,7 @@ user.put("/userUpdate", async(req,res,next)=>{
     const{userName,userLastName,userPhone,userEmail,userAddress} = req.body;
     if(userName && userLastName && userPhone && userEmail && userAddress){
         let query=`UPDATE users SET userName='${userName}', userLastName='${userLastName}', userPhone='${userPhone}'`;
-        query += `, userEmail = '${userEmail}', userAddress='${userAddress}' WHERE userName='${userName}';`;
+        query += `, userAddress='${userAddress}' WHERE userEmail='${userEmail}';`;
         const rows = await db.query(query);
         if(rows.affectedRows==1){
             return res.status(201).json({code:201,message:"Usuario Actualizado correctamente"});
@@ -55,8 +55,24 @@ user.put("/userUpdate", async(req,res,next)=>{
     return res.status(500).json({code:500, message:"Campos incompletos"});
     
 });
+//BUSCAR USUARIO 
+user.post("/buscarUsuario",async(req,res,next)=>{
+    const {userEmail} = req.body;
+    // console.log(userEmail)
 
+    const query=`SELECT * FROM users WHERE userEmail = '${userEmail}';`;
+    const rows = await db.query(query);
+    console.log(rows)
+    if(rows.length==1){
+        return res.status(200).json({code:201,message:rows});
 
+    }
+    else{
+        return res.status(404).json({code:404, message: "USUARIO NO ENCONTRADO"});
+    }
+ 
+   
+});
 //ADMINISTRADOR LOGIN
 user.post("/login",async(req,res,next)=>{
     const {adminEmail,adminPassword}=req.body;
