@@ -24,8 +24,7 @@ $(document).ready(function() {
 function loadUsers(){
   axios.get(url + "/user/",headers)
   .then(function(res){
-      console.log(res)
-      imprimirUsers(res.data.mesagge)
+      imprimirUsers(res.data.message)
 
   }).catch(function(err){
       console.log(err)
@@ -35,8 +34,7 @@ function loadUsers(){
 
 
 function imprimirUsers(usuarios){
-
-  for (let i = 0; i < pokemon.length; i++) {
+  for (let i = 0; i < usuarios.length; i++) {
     t.row.add( [
       usuarios[i].userName,
       usuarios[i].userLastName,
@@ -73,14 +71,7 @@ function registro(){
    direccion
 ] ).draw( false );
 
-// axios.get(url + "/pokemon",headers)
-// .then(function(res){
-//     console.log(res)
-//     displayPokemon(res.data.mesagge)
 
-// }).catch(function(err){
-//     console.log(err)
-// })
 
 }
 
