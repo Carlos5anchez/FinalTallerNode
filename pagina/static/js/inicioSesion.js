@@ -27,7 +27,7 @@ function init(){
        
         if(res.data.code === 200){
             localStorage.setItem("token",res.data.message)
-             window.location.hraf="Usuarios.html"
+             window.location.href="Usuarios.html"
            
         }
         else{

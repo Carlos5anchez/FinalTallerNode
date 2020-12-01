@@ -17,7 +17,7 @@ $(document).ready(function() {
       loadUsers(); 
   }
   else{
-      window,lotion.href="login.html"
+      window.location.href="Index.html"
   }
 
 
