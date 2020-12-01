@@ -1,5 +1,6 @@
 var localStorage = window.localStorage;
 var tablaID= document.getElementById("tbody");
+var contador=7;
 
   $(document).ready( function () {
     $('#example').DataTable({
@@ -13,31 +14,28 @@ var tablaID= document.getElementById("tbody");
     
     var cliente2=JSON.parse(localStorage.getItem('cliente'))
     
-
+    console.log(cliente2.compra)
     var tr= document.createElement("tr")
     var td1= document.createElement("td")
     var td2= document.createElement("td")
     var td3= document.createElement("td")
     var td4= document.createElement("td")
-    
-    td1.innerText=cliente2.nombre;
-    td2.innerText=cliente2.apellidos;
-    td3.innerText=cliente2.email;
-    td4.innerText=cliente2.telefono;
+    var td5= document.createElement("td")
+
+    td1.innerText=contador;
+    td2.innerText=cliente2.compra[0].nombre;
+    td3.innerText=`$ ${cliente2.compra[0].precio}`;
+    td4.innerText= 1;
+    td5.innerText= "21 de Noviembre 2020";
 
     tr.appendChild(td1)
     tr.appendChild(td2)
     tr.appendChild(td3)
     tr.appendChild(td4)
+    tr.appendChild(td5)
 
     tablaID.appendChild(tr)
+    
    
-//     <tr>
-//     <td>Tiger Nixon</td>
-//     <td>System Architect</td>
-//     <td>Edinburgh</td>
-//     <td>61</td>
-// </tr>
-
 
 } );

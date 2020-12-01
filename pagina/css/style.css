@@ -53,6 +53,7 @@
            5.2 margin
            5.3 padding
 */
+
 #addRow{
   width: 35px;
   height: 35px;
@@ -76,9 +77,6 @@ margin-right:3px ;
  
   display: flex;
   justify-content: flex-end;
-}
-#example_filter>label>input{
-  border: 1px solid #60ba07 !important;
 }
 div#tabla-container{
     display: flex;
